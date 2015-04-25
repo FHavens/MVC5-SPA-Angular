@@ -9,6 +9,9 @@ namespace SPAuth.Web {
 			if (string.IsNullOrEmpty(relativeUrl))
 				return relativeUrl;
 
+			if (relativeUrl.ToLower().StartsWith("http"))
+    				return relativeUrl;
+
 			var httpContext = HttpContext.Current;
 			if (httpContext == null)
 				return relativeUrl;
